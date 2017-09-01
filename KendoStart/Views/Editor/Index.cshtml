@@ -1,0 +1,41 @@
+﻿@using Kendo.Mvc.UI
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    //    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+
+@(Html.Kendo().Editor()
+     .Name("editor")
+     .Tools(
+       tools => tools.Clear()
+       .FontName(items => items.Add("Verdana", "Verdana,Geneva,sans-serif")
+       .Add("Garamond", "Garamond , serif"))
+       .FontSize(items => items
+       .Add("1 (8pt)", "xxx-small")
+       .Add("16px", "16px"))
+       .CustomButton(cb => cb.Name("custom")
+       .ToolTip("Insert a horizontal rule")
+           .Exec(@<text>
+        function (e){
+        var editor = $(this).data("kendoEditor");
+        editor.exec("inserthtml" , {value:"<hr/>"});
+        }
+        </text>)))
+      .Value(@<text>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+                    quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+                    fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                    Nullam dictum feliseu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
+                    vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+                </p>
+    </text>)
+
+
+)
