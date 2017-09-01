@@ -17,32 +17,31 @@
               .Items(children =>
               {
                   children.Add()
-                  .Text("Furniture")
-                  .Items(innerchildren =>
-                  {
-                      innerchildren.Add().Text("Table & Chairs")
-                      .Items(subChildren =>
+                      .Text("Furniture")
+                      .Items(innerchildren =>
                       {
-                          subChildren.Add().Text("Too hard");
-                          subChildren.Add().Text("Too soft");
-                          subChildren.Add().Text("Just right");
+                          innerchildren.Add().Text("Table & Chairs")
+                              .Items(subChildren =>
+                              {
+                                  subChildren.Add().Text("Too hard");
+                                  subChildren.Add().Text("Too soft");
+                                  subChildren.Add().Text("Just right");
+                              });
+                          innerchildren.Add().Text("Sofas");
+                          innerchildren.Add().Text("Occasional Furniture");
+                          innerchildren.Add().Text("Beds");
                       });
-                      innerchildren.Add().Text("Sofas");
-                      innerchildren.Add().Text("Occasional Furniture");
-                      innerchildren.Add().Text("Beds");
-                  });
 
                   children.Add()
-                  .Text("Decor")
-                  .Items(innerChildren =>
-                  {
-                      innerChildren.Add().Text("Bed Linen");
-                      innerChildren.Add().Text("Throws");
-                      innerChildren.Add().Text("Rugs");
-                  });
+                      .Text("Decor")
+                      .Items(innerChildren =>
+                      {
+                          innerChildren.Add().Text("Bed Linen");
+                          innerChildren.Add().Text("Throws");
+                          innerChildren.Add().Text("Rugs");
+                      });
               });
           items.Add().Text("Events");
           items.Add().Text("News");
-
       })
-)
+      )

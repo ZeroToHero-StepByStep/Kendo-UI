@@ -1,9 +1,11 @@
-﻿@using Kendo.Mvc.UI
+﻿@using System.Collections
+@using Kendo.Mvc.UI
+@using KendoStart.Models
 @model dynamic
 
 @{
     ViewBag.Title = "DatePicker";
-//    Layout = "_Layout";
+    //    Layout = "_Layout";
 }
 
 
@@ -25,6 +27,21 @@
       .Min("9/28/2013")
       .Events(e => e.Change("endChange"))
 )
+
+@(Html.Kendo().Grid((IEnumerable<Student>)ViewBag.students)
+   .Name("Grid")
+   .Columns(columns =>
+   {
+       columns.Bound(student => student.Name);
+       columns.Bound(student => student.Age);
+       columns.Bound(student => student.City);
+   })
+   .Pageable()
+   .Sortable()
+)
+
+
+
 
 <script type="text/javascript">
 
@@ -51,4 +68,6 @@
     }
 
 </script>
+
+
 
