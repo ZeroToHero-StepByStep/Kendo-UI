@@ -13,5 +13,7 @@ namespace KendoStart.Controllers
         {
             return View();
         }
+
+
     }
 }

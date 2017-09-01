@@ -18,7 +18,7 @@
             .Value("9/28/2013")
             .Max("9/28/2014")
             .Events(e => e.Change("startChange"))
-)
+      )
 
 <label for="end">End Date:</label>
 @(Html.Kendo().DatePicker()
@@ -26,22 +26,36 @@
       .Value("9/28/2014")
       .Min("9/28/2013")
       .Events(e => e.Change("endChange"))
-)
-
-@(Html.Kendo().Grid((IEnumerable<Student>)ViewBag.students)
-   .Name("Grid")
-   .Columns(columns =>
-   {
-       columns.Bound(student => student.Name);
-       columns.Bound(student => student.Age);
-       columns.Bound(student => student.City);
-   })
-   .Pageable()
-   .Sortable()
-)
+      )
 
 
+@*@(Html.Kendo().Grid((IEnumerable<Student>)ViewBag.students)*@
+@*   .Name("Grid")*@
+@*   .Columns(columns =>*@
+@*   {*@
+@*       columns.Bound(student => student.Name);*@
+@*       columns.Bound(student => student.Age);*@
+@*       columns.Bound(student => student.City);*@
+@*   })*@
+@*   .Pageable()*@
+@*   .Sortable()*@
+@*)*@
 
+@(Html.Kendo().Grid<Student>()
+      .Name("Grid")
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Read(read => read.Action("Product_Read", "DatePicker"))
+      )
+      .Columns(columns =>
+      {
+          columns.Bound(student => student.Name);
+          columns.Bound(student => student.Age);
+          columns.Bound(student => student.City);
+      })
+      .Pageable()
+      .Sortable()
+      )
 
 <script type="text/javascript">
 
@@ -68,6 +82,3 @@
     }
 
 </script>
-
-
-
