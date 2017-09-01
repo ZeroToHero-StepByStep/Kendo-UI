@@ -1,0 +1,38 @@
+﻿@using Kendo.Mvc.UI
+@using KendoStart.Models
+@model IEnumerable<Student>
+
+@{
+    ViewBag.Title = "title";
+    //    Layout = "~/Views/Chart/_Layout";
+}
+
+<h2>Student Age</h2>
+@**@
+@*@(Html.Kendo().Chart<Student>()*@
+@*      .Name("StudentAge")*@
+@*      .DataSource(dataSource => dataSource.Read(read => read.Action("Student_read", "Student")))*@
+@*      .Series(series =>*@
+@*      {*@
+@*          series.Bar(student => student.Age)*@
+@*              .Name("Age");*@
+@*      })*@
+@*      .CategoryAxis(axis => axis.Categories(model => model.Name))*@
+@*)*@
+
+
+@(Html.Kendo().Chart<Student>()
+      .Name("bookPriceChart")
+      .DataSource(dataSource => dataSource
+          .Read(read => read.Action("Student_read", "Student"))
+      )
+      .Series(series =>
+      {
+          series.Bar(d => d.Age)
+              .Name("Age");
+      })
+      .CategoryAxis(axis => axis
+          .Categories(model => model.Name)
+      )
+
+)
