@@ -1,0 +1,65 @@
+﻿@using Kendo.Mvc.UI
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    //    Layout = "_Layout";
+}
+
+<h2>Radial Guage</h2>
+
+<div id="gague-container">
+    @(Html.Kendo().RadialGauge()
+          .Name("gauge")
+          .Pointer(pointer => pointer.Value(50))
+          .Scale(scale => scale
+              .MinorUnit(5)
+              .StartAngle(-30)
+              .EndAngle(210)
+              .Max(180)
+              .Min(0)
+          )
+          )
+
+    @(Html.Kendo().Slider()
+          .Name("gauge-value")
+          .Value(50)
+          .Min(0)
+          .Max(180)
+          .ShowButtons(false)
+          .Events(e => e.Change("change")
+          )
+          )
+</div>
+
+
+
+<script>
+    function change(e) {
+        $("#gauge").data("kendoRadialGauge").value($("#gauge-value").val());    
+    }
+    
+</script>
+
+<style>
+    #gague-container {
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        margin: 0 auto 30px auto;
+    }
+
+
+    #guage {
+        width: 350px;
+        height: 300px;
+        margin: 0 auto;
+        border-color: transparent;
+    }
+    
+    #gague-container .k-slider {
+        margin-top: -11px;
+        width: 140px; 
+    }
+   
+</style>

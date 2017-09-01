@@ -154,6 +154,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RadialGaugeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\DatePickerController.cs" />
     <Compile Include="Controllers\EditorController.cs" />
@@ -1866,6 +1867,7 @@
     <Content Include="Views\Editor\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\RadialGauge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
