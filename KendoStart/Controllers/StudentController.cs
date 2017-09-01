@@ -22,7 +22,7 @@ namespace KendoStart.Controllers
         public ActionResult Index()
         {
             
-            return View(_context.Students.ToList());
+            return View();
         }
 
         public ActionResult Student_read()

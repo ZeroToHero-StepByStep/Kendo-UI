@@ -1,6 +1,6 @@
 ﻿@using Kendo.Mvc.UI
 @using KendoStart.Models
-@model IEnumerable<Student>
+
 
 @{
     ViewBag.Title = "title";
@@ -8,17 +8,6 @@
 }
 
 <h2>Student Age</h2>
-@**@
-@*@(Html.Kendo().Chart<Student>()*@
-@*      .Name("StudentAge")*@
-@*      .DataSource(dataSource => dataSource.Read(read => read.Action("Student_read", "Student")))*@
-@*      .Series(series =>*@
-@*      {*@
-@*          series.Bar(student => student.Age)*@
-@*              .Name("Age");*@
-@*      })*@
-@*      .CategoryAxis(axis => axis.Categories(model => model.Name))*@
-@*)*@
 
 
 @(Html.Kendo().Chart<Student>()
@@ -34,5 +23,20 @@
       .CategoryAxis(axis => axis
           .Categories(model => model.Name)
       )
+      .Events(e => e
+     .DataBound("students_databound")
+     .SeriesClick("books_seriesClick"))
 
 )
+
+
+<script>
+    function students_databound() {
+        alert('students data were bounded');
+    }
+
+
+    function books_seriesClick() {
+        alert('you click on the series');
+    }
+</script>
