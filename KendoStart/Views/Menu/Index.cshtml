@@ -1,0 +1,48 @@
+﻿@using Kendo.Mvc.UI
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    //    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+@(Html.Kendo()
+      .Menu()
+      .Name("Menu")
+      .Items(items =>
+      {
+          items.Add().Text("Product")
+              .Items(children =>
+              {
+                  children.Add()
+                  .Text("Furniture")
+                  .Items(innerchildren =>
+                  {
+                      innerchildren.Add().Text("Table & Chairs")
+                      .Items(subChildren =>
+                      {
+                          subChildren.Add().Text("Too hard");
+                          subChildren.Add().Text("Too soft");
+                          subChildren.Add().Text("Just right");
+                      });
+                      innerchildren.Add().Text("Sofas");
+                      innerchildren.Add().Text("Occasional Furniture");
+                      innerchildren.Add().Text("Beds");
+                  });
+
+                  children.Add()
+                  .Text("Decor")
+                  .Items(innerChildren =>
+                  {
+                      innerChildren.Add().Text("Bed Linen");
+                      innerChildren.Add().Text("Throws");
+                      innerChildren.Add().Text("Rugs");
+                  });
+              });
+          items.Add().Text("Events");
+          items.Add().Text("News");
+
+      })
+)
